@@ -24,7 +24,7 @@ const List = () => {
           <div>상품 번호</div>
           <div>상품명</div>
           <div>브랜드</div>
-          <div>상품내용</div>
+          <div>상품 내용</div>
           <div>가격</div>
           <div>평점</div>
           <div>재고</div>
@@ -36,7 +36,7 @@ const List = () => {
                 <div>{id}</div>
                 <div>{title}</div>
                 <div>{brand}</div>
-                <div className="List-table-content-desc">{description}</div>
+                <div className="List-table-content-description">{description}</div>
                 <div>${price}</div>
                 <div>{rating}</div>
                 <div>{stock}</div>

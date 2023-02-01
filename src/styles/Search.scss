@@ -1,0 +1,25 @@
+.Search {
+  display: flex;
+}
+
+.Search-title {
+  font-size: 18px;
+  margin: 10px 5px 10px 0;
+}
+
+.Search-form {
+  margin: 10px 0;
+
+  select {
+    margin-right: 5px;
+  }
+
+  button {
+    margin-left: 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    box-sizing: border-box;
+  }
+}
