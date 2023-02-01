@@ -1,7 +1,8 @@
+import List from "./components/List";
 import "./styles/App.scss";
 
 const App = () => {
-  return <div className="App">Hello World</div>;
+  return <List />;
 };
 
 export default App;
