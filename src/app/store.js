@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import storeCurrentStateSlice from "../features/storeCurrentStateSlice";
+import searchEventSlice from "../features/searchEventSlice";
+import paginationEventSlice from "../features/paginationEventSlice";
 import logger from "redux-logger";
 
 const store = configureStore({
   reducer: {
-    currentState: storeCurrentStateSlice,
+    searchEvent: searchEventSlice,
+    paginationEvent: paginationEventSlice,
   },
   middleware: [logger],
 });

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { modifySearchEvent } from "../features/storeCurrentStateSlice";
+import { modifySearchEvent } from "../features/searchEventSlice";
 
 import "../styles/Search.scss";
 
