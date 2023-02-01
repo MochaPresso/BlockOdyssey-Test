@@ -5,8 +5,8 @@ const initialState = {
   searchKeyword: "",
 };
 
-export const storeCurrentStateSlice = createSlice({
-  name: "storeCurrentState",
+export const searchEventSlice = createSlice({
+  name: "searchEvent",
   initialState,
   reducers: {
     modifySearchEvent: (state, action) => {
@@ -16,6 +16,6 @@ export const storeCurrentStateSlice = createSlice({
   },
 });
 
-export const { modifySearchEvent } = storeCurrentStateSlice.actions;
+export const { modifySearchEvent } = searchEventSlice.actions;
 
-export default storeCurrentStateSlice.reducer;
+export default searchEventSlice.reducer;

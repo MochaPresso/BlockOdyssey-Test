@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { switchCurrentPage, storeNumberOfProduct } from "../features/paginationEventSlice";
+
 import "../styles/List.scss";
 
 const List = () => {
   const [productList, setProductList] = useState(null);
-  const { searchCondition, searchKeyword } = useSelector((state) => state.currentState);
+  const { searchCondition, searchKeyword } = useSelector((state) => state.searchEvent);
+  const { pageLimit, currentPage } = useSelector((state) => state.paginationEvent);
+  const dispatch = useDispatch();
+  const pageOffset = (currentPage - 1) * pageLimit;
   const filteredProductList =
     searchKeyword.length === 0
       ? productList?.products
@@ -28,6 +33,7 @@ const List = () => {
       : productList?.products.filter((product) =>
           product[searchCondition].toLowerCase().includes(searchKeyword)
         );
+  let numberOfProduct = filteredProductList?.length;
 
   useEffect(() => {
     (async () => {
@@ -39,6 +45,11 @@ const List = () => {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    dispatch(storeNumberOfProduct(numberOfProduct ?? 0));
+    dispatch(switchCurrentPage(1));
+  }, [dispatch, numberOfProduct]);
 
   return (
     <div className="List">
@@ -57,17 +68,19 @@ const List = () => {
         </div>
         <div className="List-table-body">
           {filteredProductList &&
-            filteredProductList.map(({ id, title, brand, description, price, rating, stock }) => (
-              <div className="List-table-content" key={id}>
-                <div>{id}</div>
-                <div>{title}</div>
-                <div>{brand}</div>
-                <div className="List-table-content-description">{description}</div>
-                <div>${price}</div>
-                <div>{rating}</div>
-                <div>{stock}</div>
-              </div>
-            ))}
+            filteredProductList
+              .slice(pageOffset, pageOffset + pageLimit)
+              .map(({ id, title, brand, description, price, rating, stock }) => (
+                <div className="List-table-content" key={id}>
+                  <div>{id}</div>
+                  <div>{title}</div>
+                  <div>{brand}</div>
+                  <div className="List-table-content-description">{description}</div>
+                  <div>${price}</div>
+                  <div>{rating}</div>
+                  <div>{stock}</div>
+                </div>
+              ))}
         </div>
       </div>
     </div>
