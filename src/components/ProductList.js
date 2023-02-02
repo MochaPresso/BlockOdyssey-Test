@@ -38,7 +38,7 @@ const ProductList = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get("/dummyData.json");
+        const response = await axios.get(process.env.REACT_APP_API_URL);
         setProductList(response.data);
       } catch (error) {
         console.error(error);
