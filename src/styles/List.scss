@@ -1,19 +1,19 @@
-.List {
+.list {
   display: flex;
   flex-flow: column;
 }
 
-.List-total {
+.list-total {
   margin: 20px 0 20px 0;
 }
 
-.List-table {
+.list-table {
   width: 100%;
   text-align: center;
   border-collapse: collapse;
 }
 
-.List-table-head {
+.list-table-head {
   display: grid;
   grid-template-columns: 5% 25% 15% 40% 5% 5% 5%;
   padding-bottom: 10px;
@@ -21,7 +21,7 @@
   border-bottom: 1px solid #000;
 }
 
-.List-table-content {
+.list-table-content {
   display: grid;
   grid-template-columns: 5% 25% 15% 40% 5% 5% 5%;
   padding-bottom: 5px;
@@ -29,7 +29,7 @@
   border-bottom: 1px solid rgb(90, 90, 90);
 }
 
-.List-table-content-description {
+.list-table-content-description {
   max-width: 250px;
   justify-self: center;
   white-space: nowrap;

@@ -5,7 +5,7 @@ import { switchCurrentPage, storeNumberOfProduct } from "../features/paginationE
 
 import "../styles/List.scss";
 
-const List = () => {
+const ProductList = () => {
   const [productList, setProductList] = useState(null);
   const { searchCondition, searchKeyword } = useSelector((state) => state.searchEvent);
   const { pageLimit, currentPage } = useSelector((state) => state.paginationEvent);
@@ -33,7 +33,7 @@ const List = () => {
       : productList?.products.filter((product) =>
           product[searchCondition].toLowerCase().includes(searchKeyword)
         );
-  let numberOfProduct = filteredProductList?.length;
+  const numberOfProduct = filteredProductList?.length;
 
   useEffect(() => {
     (async () => {
@@ -52,12 +52,12 @@ const List = () => {
   }, [dispatch, numberOfProduct]);
 
   return (
-    <div className="List">
-      <div className="List-total">
+    <div className="list">
+      <div className="list-total">
         검색된 데이터: {filteredProductList && filteredProductList.length}건
       </div>
-      <div className="List-table">
-        <div className="List-table-head">
+      <div className="list-table">
+        <div className="list-table-head">
           <div>상품 번호</div>
           <div>상품명</div>
           <div>브랜드</div>
@@ -66,16 +66,16 @@ const List = () => {
           <div>평점</div>
           <div>재고</div>
         </div>
-        <div className="List-table-body">
+        <div className="list-table-body">
           {filteredProductList &&
             filteredProductList
               .slice(pageOffset, pageOffset + pageLimit)
               .map(({ id, title, brand, description, price, rating, stock }) => (
-                <div className="List-table-content" key={id}>
+                <div className="list-table-content" key={id}>
                   <div>{id}</div>
                   <div>{title}</div>
                   <div>{brand}</div>
-                  <div className="List-table-content-description">{description}</div>
+                  <div className="list-table-content-description">{description}</div>
                   <div>${price}</div>
                   <div>{rating}</div>
                   <div>{stock}</div>
@@ -87,4 +87,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default ProductList;

@@ -17,9 +17,9 @@ const Search = () => {
   };
 
   return (
-    <div className="Search">
-      <div className="Search-title">상품 검색</div>
-      <form className="Search-form" onSubmit={(e) => handleSubmit(e)}>
+    <div className="search">
+      <div className="search-title">상품 검색</div>
+      <form className="search-form" onSubmit={(e) => handleSubmit(e)}>
         <select
           value={formValue.condition}
           onChange={(e) =>

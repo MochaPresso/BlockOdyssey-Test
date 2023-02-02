@@ -10,8 +10,8 @@ const Pagination = () => {
   const numberOfPages = numberOfProduct !== 0 ? Math.ceil(numberOfProduct / pageLimit) : 1;
 
   return (
-    <div className="Pagination">
-      <div className="Pagination-rows-per-page">
+    <div className="pagination">
+      <div className="pagination-rows-per-page">
         <span>페이지 당 행: </span>
         <select
           value={pageLimit}
@@ -24,7 +24,7 @@ const Pagination = () => {
           <option value={50}>50</option>
         </select>
       </div>
-      <div className="Pagination-button">
+      <div className="pagination-button">
         <button
           onClick={() => dispatch(switchCurrentPage(currentPage - 1))}
           disabled={currentPage === 1}

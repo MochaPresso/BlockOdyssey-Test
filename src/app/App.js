@@ -1,4 +1,4 @@
-import List from "../components/List";
+import ProductList from "../components/ProductList";
 import Search from "../components/Search";
 import Pagination from "../components/Pagination";
 
@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="App">
       <Search />
-      <List />
+      <ProductList />
       <Pagination />
     </div>
   );
